@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
                 startButton.setVisibility(View.GONE);
-                start();
+                start();   
             }
         });
 
