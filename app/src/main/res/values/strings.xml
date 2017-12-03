@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">FUCKTHISFUCKENFUCKENFUCKSHIT</string>
+    <string name="app_name">Flex</string>
+    <string name="score">Score</string>
+    <string name="streak">Streak: </string>
+    <string name="lives">Lives: </string>
+    <string name="pause">Pause</string>
+    <string name="zero">0</string>
+    <string name="start">START!</string>
+    <string name="greencirc">Green Circle</string>
+    <string name="redcirc">Red Circle</string>
+
+
 </resources>
