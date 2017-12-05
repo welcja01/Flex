@@ -8,6 +8,16 @@
     <string name="start">START!</string>
     <string name="greencirc">Green Circle</string>
     <string name="redcirc">Red Circle</string>
-
+    <string name="playBut">Play Game!</string>
+    <string name="authorBut">Author Info</string>
+    <string name="authors">"App created by Gettysburg College students:
+             Will Flower
+             Sara Freed
+             Laura Gessler
+             Dean Helwig
+             Megan Heyer
+             Nathan Riehl
+             Matthew Robinson
+             Jamie Welch"</string>
 
 </resources>

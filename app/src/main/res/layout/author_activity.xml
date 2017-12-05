@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.willflower.Flex.MainActivity">
+    tools:context="com.example.willflower.Flex.AuthorActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,22 +12,12 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-
-        <Button
-            android:id="@+id/playbutton"
+        <TextView
+            android:id="@+id/authorInfo"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="@string/playBut"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:id="@+id/authorButton"
-            android:layout_width="223dp"
-            android:layout_height="54dp"
-            android:text="@string/authorBut"
-            android:layout_gravity="center_horizontal" />
-
+            android:layout_height="match_parent"
+            android:text="@string/authors"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
-

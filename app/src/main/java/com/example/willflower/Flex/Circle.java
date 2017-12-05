@@ -6,7 +6,7 @@ import java.util.Random;
  * Created by willflower on 11/28/17.
  */
 
-public class Circle extends MainActivity{
+public class Circle extends PlayActivity {
 
     private int xCord = 0;
     private int yCord = 0;
