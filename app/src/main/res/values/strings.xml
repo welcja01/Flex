@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Flex</string>
-    <string name="score">Score</string>
+    <string name="exclamation">!</string>
+    <string name="score">Score: </string>
     <string name="streak">Streak: </string>
     <string name="lives">Lives: </string>
     <string name="pause">Pause</string>
@@ -10,7 +11,9 @@
     <string name="redcirc">Red Circle</string>
     <string name="playBut">Play Game!</string>
     <string name="authorBut">Author Info</string>
-    <string name="authors">"App created by Gettysburg College students:
+    <string name="authorInfo">App created by Gettysburg College students:</string>
+    <string name="authors">
+            "
              Will Flower
              Sara Freed
              Laura Gessler
@@ -19,5 +22,5 @@
              Nathan Riehl
              Matthew Robinson
              Jamie Welch"</string>
-
+    <string name="backToMain"> Main Menu </string>
 </resources>

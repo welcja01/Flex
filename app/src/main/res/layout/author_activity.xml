@@ -4,20 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context="com.example.willflower.Flex.AuthorActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/authorInfo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_height="783dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="200dp"
+        android:fontFamily="monospace"
+        android:text="@string/authorInfo"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/authorInfo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/authors"
-            android:textSize="18sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/authors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginTop="400dp"
+        android:fontFamily="monospace"
+        android:text="@string/authors"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/authorInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="271dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="900dp"
+        android:background="@color/lightblue"
+        android:fontFamily="monospace"
+        android:text="@string/backToMain"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/authorInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

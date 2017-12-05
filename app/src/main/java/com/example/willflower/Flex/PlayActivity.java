@@ -45,7 +45,7 @@ public class PlayActivity extends AppCompatActivity {
     private TextView textViewScore, textViewTime, textViewLives;
     private ImageView imageView;
 
-    private Button buttonTimeRemaining, startButton;
+    private Button buttonPause, startButton;
     private ImageButton redButton, greenButton;
 
     private HashMap<String, Drawable> drawableMap = new HashMap<String, Drawable>();
@@ -90,8 +90,8 @@ public class PlayActivity extends AppCompatActivity {
                 start();
             }
         });
-        buttonTimeRemaining = findViewById(R.id.timeRemainingButton);
-        buttonTimeRemaining.setOnClickListener(new View.OnClickListener(){
+        buttonPause = findViewById(R.id.pauseButton);
+        buttonPause.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 start();

@@ -8,92 +8,109 @@
     tools:background="@color/black"
     tools:context="com.example.willflower.Flex.PlayActivity">
 
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <TextView
+        android:id="@+id/streak"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:fontFamily="monospace"
+        android:text="@string/streak"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/redCirc"
+        app:layout_constraintEnd_toStartOf="@+id/textViewStreak"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TableRow
-            android:layout_width="30dp"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textViewStreak"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="579dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="7dp"
+        android:layout_weight="1"
+        android:text="@string/zero"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streak"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/streak"
-                android:layout_width="87dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="@string/streak"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:fontFamily="monospace"
+        android:text="@string/score"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/redCirc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:text="@string/zero"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="579dp"
+        android:layout_marginStart="475dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:text="@string/zero"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streak"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/score"
-                android:layout_width="87dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="@string/score"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+    <TextView
+        android:id="@+id/lives"
+        android:layout_width="85dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="650dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:fontFamily="monospace"
+        android:text="@string/lives"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/redCirc"
+        app:layout_constraintEnd_toStartOf="@+id/streak"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:text="@string/zero"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/lives"
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="@string/lives"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <CheckBox
-                android:id="@+id/life1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/red"
-                android:visibility="visible" />
-
-            <CheckBox
-                android:id="@+id/life2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/red"
-                android:visibility="visible" />
-
-            <CheckBox
-                android:id="@+id/life3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/red"
-                android:visibility="visible"
-                tools:layout_editor_absoluteX="347dp"
-                tools:layout_editor_absoluteY="8dp" />
-        </TableRow>
-
-    </TableLayout>
+    <TextView
+        android:id="@+id/textViewLives"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="579dp"
+        android:layout_marginStart="750dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:fontFamily="monospace"
+        android:text="@string/zero"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/streak"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/startButton"
@@ -143,17 +160,20 @@
         app:srcCompat="@drawable/ic_red" />
 
     <Button
-        android:id="@+id/timeRemainingButton"
+        android:id="@+id/pauseButton"
         android:layout_width="373dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="52dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="53dp"
+        android:layout_marginTop="492dp"
         android:background="@color/lightblue"
         android:fontFamily="monospace"
         android:text="@string/pause"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:background="@color/lightblue" />
 
 

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\Ned\AndroidStudioProjects\Flex\app\Flex.iml" filepath="C:\Users\Ned\AndroidStudioProjects\Flex\app\Flex.iml" />
       <module fileurl="file://$PROJECT_DIR$/Flex.iml" filepath="$PROJECT_DIR$/Flex.iml" />
+      <module fileurl="file://C:\Users\Ned\AndroidStudioProjects\Flex\app\Flex.iml" filepath="C:\Users\Ned\AndroidStudioProjects\Flex\app\Flex.iml" />
       <module fileurl="file://C:\Users\Ned\AndroidStudioProjects\Flex\Flex-4.iml" filepath="C:\Users\Ned\AndroidStudioProjects\Flex\Flex-4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Flex2.iml" filepath="$PROJECT_DIR$/Flex2.iml" />
+      <module fileurl="file://C:\Users\Ned\AndroidStudioProjects\Flex\Flex2.iml" filepath="C:\Users\Ned\AndroidStudioProjects\Flex\Flex2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Ned\AndroidStudioProjects\Flex\Flex\app.iml" filepath="C:\Users\Ned\AndroidStudioProjects\Flex\Flex\app.iml" />
     </modules>
