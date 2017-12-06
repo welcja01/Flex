@@ -99,11 +99,13 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
+        System.out.println("Setting screen size");
+        setScreenSize();
+       System.out.println("Setting in bounds");
+        setInBounds();
     }
     private void Start(){
         System.out.println("Setting screen size");
-        setScreenSize();
-        setInBounds();
         setCircles();
 
         redButton.setVisibility(View.VISIBLE);
@@ -117,8 +119,8 @@ public class PlayActivity extends AppCompatActivity {
         new CountDownTimer(startTime, 100) {
             @Override
             public void onTick(long millsUntilFinished) {
+                System.out.println("mills remaining: " + millsUntilFinished)
                 if(redClick || greenClick){
-                    System.out.println("mills remaining: " + millsUntilFinished);
                     cancel();
                     System.out.println("Timer cancled");
                     System.out.println("Time left on timer" + millsUntilFinished);
@@ -163,25 +165,31 @@ public class PlayActivity extends AppCompatActivity {
 
     private void score(){
         if (redClick){
-            System.out.println("");
+            System.out.println("redClick == true");
             lives--;
             userStreak = 0;
-            redClick = false;
+            redClick;
         }
         else{
+            System.out.println("greenClick == true");
             userStreak++;
             userScore++;
             greenClick = false;
         }
         updateTextFeilds();
+        System.out.println("updated textfeilds");
         updateTime();
+        System.out.println("updated updatedTime");
         isGameOver();
+        System.out.println("checked if game is over. It is not.");
         Start();
     }
 
     private void isGameOver(){
         if(lives == 0){
             updateTextFeilds();
+            System.out.println("updated text feilds");
+            System.out.println("game is over");
             greenButton.setVisibility(View.GONE);
             redButton.setVisibility(View.GONE);
             im.setVisibility(View.VISIBLE);
@@ -191,7 +199,7 @@ public class PlayActivity extends AppCompatActivity {
     private void updateTime(){
 
         System.out.println("updating time");
-        System.out.println("startTime: "+startTime);
+        System.out.println("startTime: "+ +startTime+"");
         startTime = startTime * (int)decayRate;
         System.out.println("Updated startTime");
     }
