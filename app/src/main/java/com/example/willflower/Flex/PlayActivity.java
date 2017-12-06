@@ -10,12 +10,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Random;
+import android.media.MediaPlayer;
 
 public class PlayActivity extends AppCompatActivity {
     private static final int circleRadius = 14; // TODO this needs to be update by graphics/activty flow
     private static final double decayRate = .9; //TODO needs to be updated by.........
 
-
+    MediaPlayer mp        = null;
+    private String buzzer = "buzzer";
+    private String pop  = "pop";
     private int startTime = 5000; //TODO decide with group
     private int lives = 3;
     private int redXCord = 0;
@@ -63,6 +66,7 @@ public class PlayActivity extends AppCompatActivity {
         greenButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                callSound("pop");
                 greenClick = true;
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
@@ -74,6 +78,7 @@ public class PlayActivity extends AppCompatActivity {
         redButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                callSound("buzzer");
                 redClick = true;
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
@@ -119,7 +124,7 @@ public class PlayActivity extends AppCompatActivity {
         new CountDownTimer(startTime, 100) {
             @Override
             public void onTick(long millsUntilFinished) {
-                System.out.println("mills remaining: " + millsUntilFinished)
+                System.out.println("mills remaining: " + millsUntilFinished);
                 if(redClick || greenClick){
                     cancel();
                     System.out.println("Timer cancled");
@@ -168,7 +173,7 @@ public class PlayActivity extends AppCompatActivity {
             System.out.println("redClick == true");
             lives--;
             userStreak = 0;
-            redClick;
+            redClick = false;
         }
         else{
             System.out.println("greenClick == true");
@@ -183,6 +188,18 @@ public class PlayActivity extends AppCompatActivity {
         isGameOver();
         System.out.println("checked if game is over. It is not.");
         Start();
+    }
+
+    protected void callSound(String theText) {
+        if (mp != null) {
+            mp.reset();
+            mp.release();
+        }
+        if (theText == pop)
+            mp = MediaPlayer.create(this, R.raw.pop);
+        else if (theText == buzzer)
+            mp = MediaPlayer.create(this, R.raw.buzzer);
+        mp.start();
     }
 
     private void isGameOver(){
