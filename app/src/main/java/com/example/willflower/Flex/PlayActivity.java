@@ -10,12 +10,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Random;
+import android.media.MediaPlayer;
 
 public class PlayActivity extends AppCompatActivity {
     private static int circleDiam; // TODO this needs to be update by graphics/activty flow
     private static final double decayRate = .9; //TODO needs to be updated by.........
 
 
+    MediaPlayer mp = null;
+    String pop  = "pop";
+    String buzzer = "buzzer";
     private int startTime = 5000; //TODO decide with group
     private int lives = 3;
     private int redXCord = 0;
@@ -51,6 +55,20 @@ public class PlayActivity extends AppCompatActivity {
 
     private Random ran = new Random();
 
+    protected void sound(String text) {
+        if (mp != null) {
+            mp.reset();
+            mp.release();
+        }
+        if (text == pop)
+            mp = MediaPlayer.create(this, R.raw.pop);
+        else if (text == buzzer)
+            mp = MediaPlayer.create(this, R.raw.buzzer);
+
+        mp.start();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -62,6 +80,7 @@ public class PlayActivity extends AppCompatActivity {
         greenButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                sound("pop");
                 greenClick = true;
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
@@ -74,6 +93,7 @@ public class PlayActivity extends AppCompatActivity {
         redButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                sound("buzzer");
                 redClick = true;
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
