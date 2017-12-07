@@ -166,13 +166,5 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:background="@color/lightblue" />
 
-    <ImageView
-        android:id="@+id/tmpTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/btn_star_big_on"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="305dp" />
-
 
 </android.support.constraint.ConstraintLayout>

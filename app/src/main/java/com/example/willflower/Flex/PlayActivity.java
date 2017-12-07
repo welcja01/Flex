@@ -10,15 +10,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Random;
-import android.media.MediaPlayer;
 
 public class PlayActivity extends AppCompatActivity {
-    private static final int circleRadius = 14; // TODO this needs to be update by graphics/activty flow
+    private static int circleDiam; // TODO this needs to be update by graphics/activty flow
     private static final double decayRate = .9; //TODO needs to be updated by.........
 
-    MediaPlayer mp        = null;
-    private String buzzer = "buzzer";
-    private String pop  = "pop";
+
     private int startTime = 5000; //TODO decide with group
     private int lives = 3;
     private int redXCord = 0;
@@ -56,20 +53,19 @@ public class PlayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        im = findViewById(R.id.tmpTest);
-        im.setVisibility(View.GONE);
-
         greenButton = findViewById(R.id.greenCirc);
+        circleDiam = greenButton.getMeasuredHeight();
         greenButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                callSound("pop");
                 greenClick = true;
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
+                score();
                 Start();
             }
         });
@@ -78,10 +74,10 @@ public class PlayActivity extends AppCompatActivity {
         redButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                callSound("buzzer");
                 redClick = true;
                 greenButton.setVisibility(View.GONE);
                 redButton.setVisibility(View.GONE);
+                score();
                 Start();
             }
         });
@@ -106,11 +102,17 @@ public class PlayActivity extends AppCompatActivity {
 
         System.out.println("Setting screen size");
         setScreenSize();
-       System.out.println("Setting in bounds");
+        System.out.println("Setting in bounds");
+        textViewScore = findViewById(R.id.score);
+        textViewLives = findViewById(R.id.lives);
+        textViewStreak = findViewById(R.id.streak);
+
+        heightTopDat = textViewScore.getMeasuredHeight();
+        heightpause = buttonPause.getMeasuredHeight();
         setInBounds();
     }
-    private void Start(){
-        System.out.println("Setting screen size");
+    private void Start() {
+        System.out.println("Start called");
         setCircles();
 
         redButton.setVisibility(View.VISIBLE);
@@ -121,7 +123,7 @@ public class PlayActivity extends AppCompatActivity {
         greenButton.setX(greenCirc.getxCord());
         greenButton.setY(greenCirc.getyCord());
 
-        new CountDownTimer(startTime, 100) {
+        /*new CountDownTimer(startTime, 100) {
             @Override
             public void onTick(long millsUntilFinished) {
                 System.out.println("mills remaining: " + millsUntilFinished);
@@ -142,8 +144,8 @@ public class PlayActivity extends AppCompatActivity {
                 score();
             }
         }.start();
+        */
     }
-
     private void setScreenSize(){
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -152,19 +154,25 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void setInBounds (){
-        topBound = circleRadius + heightTopDat;
-        botBound = bufferZone + heightpause;
-        inBoundsHeight = screenHeight - topBound - botBound;
-        inBoundsWidth = screenWidth - (circleRadius*2);
+        topBound = (circleDiam * 15 / 10) + heightTopDat;
+        botBound = bufferZone - heightpause;
+        inBoundsHeight = screenHeight - botBound;
+        inBoundsWidth = screenWidth - (circleDiam * 15/10);
     }
 
     private void setCircles (){
         //TODO it needs to be made so that the buttons don't appear on top of one another
         redYCord = ran.nextInt(inBoundsHeight) + topBound;
-        redXCord = ran.nextInt(inBoundsWidth) + circleRadius;
+        redXCord = ran.nextInt(inBoundsWidth)+circleDiam;
         redCirc = new Circle(redXCord,redYCord);
-        greenXCord = ran.nextInt(inBoundsWidth) + circleRadius;
+        greenXCord = ran.nextInt(inBoundsWidth) + circleDiam;
+        if (greenXCord > (redXCord-circleDiam) && greenXCord < (redXCord+circleDiam)){
+            greenXCord = ran.nextInt(inBoundsWidth) + circleDiam;
+        }
         greenYCord = ran.nextInt(inBoundsHeight) + topBound;
+        if (greenYCord > (redYCord-circleDiam) && greenYCord < (redYCord+circleDiam)){
+            greenYCord = ran.nextInt(inBoundsWidth) + topBound;
+        }
         greenCirc = new Circle(greenXCord, greenYCord);
     }
 
@@ -173,7 +181,7 @@ public class PlayActivity extends AppCompatActivity {
             System.out.println("redClick == true");
             lives--;
             userStreak = 0;
-            redClick = false;
+            redClick  = false;
         }
         else{
             System.out.println("greenClick == true");
@@ -183,23 +191,11 @@ public class PlayActivity extends AppCompatActivity {
         }
         updateTextFeilds();
         System.out.println("updated textfeilds");
-        updateTime();
-        System.out.println("updated updatedTime");
+        //updateTime();
+        //System.out.println("updated updatedTime");
         isGameOver();
         System.out.println("checked if game is over. It is not.");
         Start();
-    }
-
-    protected void callSound(String theText) {
-        if (mp != null) {
-            mp.reset();
-            mp.release();
-        }
-        if (theText == pop)
-            mp = MediaPlayer.create(this, R.raw.pop);
-        else if (theText == buzzer)
-            mp = MediaPlayer.create(this, R.raw.buzzer);
-        mp.start();
     }
 
     private void isGameOver(){
@@ -209,7 +205,7 @@ public class PlayActivity extends AppCompatActivity {
             System.out.println("game is over");
             greenButton.setVisibility(View.GONE);
             redButton.setVisibility(View.GONE);
-            im.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -227,16 +223,14 @@ public class PlayActivity extends AppCompatActivity {
 
     private void updateTextFeilds(){
         //update score
-        textViewScore = findViewById(R.id.score);
-        System.out.println("found textViewScore");
         textViewScore.setText("Score: "+""+userScore+"");
-        System.out.println("set textViewScore");
+        System.out.println("updated textViewScore");
 
         //update lives
-        textViewLives = findViewById(R.id.lives);
-        System.out.println("found lives");
+
+
         textViewLives.setText("Lives: "+""+lives+"");
-        System.out.println("set lives");
+        System.out.println("updated lives");
 
         //update streak
         textViewStreak = findViewById(R.id.streak);
