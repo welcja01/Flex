@@ -27,11 +27,11 @@ public class PlayActivity extends AppCompatActivity {
     private int timeUsed = 0; // TODO use this variable if we want to average score and time used for overall
     private int screenWidth = 0;
     private int screenHeight = 0;
-    private int heightTopDat = 0; //TODO this needs to be updated based on gui
-    private int heightpause = 0; //TODO this needs to be updated based on gui
+    private int heightTopDat = 500; //TODO this needs to be updated based on gui
+    private int heightpause = 100; //TODO this needs to be updated based on gui
     private int inBoundsWidth = 0;
     private int inBoundsHeight = 0;
-    private int bufferZone = 0; //TODO needs to be updated by GUI people
+    private int bufferZone = 50; //TODO needs to be updated by GUI people
     private int topBound = 0;
     private int botBound = 0;
 
@@ -47,7 +47,7 @@ public class PlayActivity extends AppCompatActivity {
 
     private Button buttonPause, startButton;
 
-    private ImageButton redButton, greenButton;
+    private ImageButton redButton, greenButton, gameOver;
 
     private Random ran = new Random();
 
@@ -58,7 +58,7 @@ public class PlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play);
 
         greenButton = findViewById(R.id.greenCirc);
-        circleDiam = greenButton.getMeasuredHeight();
+        circleDiam = 60;
         greenButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -106,9 +106,17 @@ public class PlayActivity extends AppCompatActivity {
         textViewScore = findViewById(R.id.score);
         textViewLives = findViewById(R.id.lives);
         textViewStreak = findViewById(R.id.streak);
-
-        heightTopDat = textViewScore.getMeasuredHeight();
+        float topDatXcord = textViewScore.getX();
+        float topDatYcord = textViewScore.getY();
+        System.out.println("top dat x cord = "+topDatXcord);
+        System.out.println("top dat y cord = "+topDatYcord);
+        System.out.println("top dat height = "+heightTopDat);
         heightpause = buttonPause.getMeasuredHeight();
+        System.out.println("pause x cord = "+buttonPause.getX());
+        System.out.println("pause y cord = "+buttonPause.getY());
+        System.out.println("circle diameter = "+circleDiam);
+        System.out.println("in bounds height = "+inBoundsHeight);
+        System.out.println("in bounds width = " +inBoundsWidth );
         setInBounds();
     }
     private void Start() {
@@ -154,26 +162,35 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void setInBounds (){
-        topBound = (circleDiam * 15 / 10) + heightTopDat;
-        botBound = bufferZone - heightpause;
-        inBoundsHeight = screenHeight - botBound;
-        inBoundsWidth = screenWidth - (circleDiam * 15/10);
+        topBound = (circleDiam);
+        botBound = 200 + circleDiam*3;
+        inBoundsHeight = screenHeight - botBound - topBound-20;
+        inBoundsWidth = screenWidth - (circleDiam*3);
     }
 
     private void setCircles (){
         //TODO it needs to be made so that the buttons don't appear on top of one another
-        redYCord = ran.nextInt(inBoundsHeight) + topBound;
-        redXCord = ran.nextInt(inBoundsWidth)+circleDiam;
+        redYCord = ran.nextInt(inBoundsHeight) + circleDiam+20;
+        System.out.println("in bounds height = " + inBoundsHeight);
+        redXCord = ran.nextInt(inBoundsWidth);
+        System.out.println("in bounds width = " + inBoundsWidth);
         redCirc = new Circle(redXCord,redYCord);
+        System.out.println("Red X Cord = "+redXCord);
+        System.out.println("Red Y Cord = "+redYCord);
         greenXCord = ran.nextInt(inBoundsWidth) + circleDiam;
-        if (greenXCord > (redXCord-circleDiam) && greenXCord < (redXCord+circleDiam)){
+        if (greenXCord < (redXCord-circleDiam) && greenXCord > (redXCord+circleDiam)){
             greenXCord = ran.nextInt(inBoundsWidth) + circleDiam;
         }
-        greenYCord = ran.nextInt(inBoundsHeight) + topBound;
-        if (greenYCord > (redYCord-circleDiam) && greenYCord < (redYCord+circleDiam)){
-            greenYCord = ran.nextInt(inBoundsWidth) + topBound;
+        greenYCord = ran.nextInt(inBoundsHeight) + circleDiam+20;
+        if (greenYCord < (redYCord-circleDiam) && greenYCord > (redYCord+circleDiam)){
+            greenYCord = ran.nextInt(inBoundsHeight) - circleDiam;
         }
         greenCirc = new Circle(greenXCord, greenYCord);
+        System.out.println("Green X Cord = "+greenXCord);
+        System.out.println("Green Y Cord = "+greenYCord);
+        System.out.println("screen height = "+screenHeight);
+        System.out.println("screen width = "+screenWidth);
+
     }
 
     private void score(){
@@ -203,9 +220,10 @@ public class PlayActivity extends AppCompatActivity {
             updateTextFeilds();
             System.out.println("updated text feilds");
             System.out.println("game is over");
-            greenButton.setVisibility(View.GONE);
-            redButton.setVisibility(View.GONE);
-
+            userStreak = 0;
+            userScore = 0;
+            lives = 3;
+            updateTextFeilds();
         }
     }
 

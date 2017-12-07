@@ -4,7 +4,7 @@
     <string name="score">Score: </string>
     <string name="streak">Streak: </string>
     <string name="lives">Lives: </string>
-    <string name="pause">Pause</string>
+    <string name="pause">Restart</string>
     <string name="zero">0</string>
     <string name="start">START!</string>
     <string name="greencirc">Green Circle</string>
