@@ -96,6 +96,10 @@ public class PlayActivity extends AppCompatActivity {
         buttonPause.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                userStreak = 0;
+                userScore = 0;
+                lives = 3;
+                updateTextFeilds();
                 Start();
             }
         });
