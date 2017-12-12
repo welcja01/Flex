@@ -8,101 +8,99 @@
     tools:background="@color/black"
     tools:context="com.example.willflower.Flex.PlayActivity">
 
-    <TextView
-        android:id="@+id/streak"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:fontFamily="monospace"
-        android:text="Streak: 0"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/greenCirc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewStreak"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="579dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="7dp"
-        android:layout_weight="1"
-        android:text="@string/zero"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="left"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/streak"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="4dp"
-        android:layout_weight="1"
-        android:fontFamily="monospace"
-        android:text="Score: 0"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/streak"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewScore"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="579dp"
-        android:layout_marginStart="475dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/streak"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lives"
-        android:layout_width="100dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_weight="1"
-        android:fontFamily="monospace"
-        android:text="Lives: 3"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/score"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <TextView
-        android:id="@+id/textViewLives"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="579dp"
-        android:layout_marginStart="750dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:fontFamily="monospace"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/streak"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lives"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="@string/lives"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/score"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:fontFamily="monospace"
+                android:text="@string/score"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/streak"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/streak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:fontFamily="monospace"
+                android:text="@string/streak"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/greenCirc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="top|right|center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right">
+
+        </TableRow>
+
+    </TableLayout>
 
     <Button
         android:id="@+id/startButton"

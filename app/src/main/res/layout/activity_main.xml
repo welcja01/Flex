@@ -8,105 +8,118 @@
     tools:background="@color/black"
     tools:context="com.example.willflower.Flex.MainActivity">
 
-    <ImageView
-        android:id="@+id/redcircle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
-        android:layout_marginStart="275dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/greencirc"
-        app:layout_constraintBottom_toTopOf="@+id/appname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_green" />
-
-    <TextView
-        android:id="@+id/appname"
-        android:layout_width="327dp"
-        android:layout_height="171dp"
-        android:layout_marginBottom="220dp"
-        android:layout_marginEnd="415dp"
-        android:layout_marginStart="350dp"
-        android:fontFamily="monospace"
-        android:text="@string/app_name"
-        android:textAllCaps="true"
-        android:textColor="@color/red"
-        android:textSize="125sp"
-        android:textStyle="italic"
-        android:typeface="monospace"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/exclaim"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="354dp"
-        android:layout_marginStart="630dp"
-        android:layout_marginTop="330dp"
-        android:text="@string/exclamation"
-        android:textColor="@color/green"
-        android:textSize="125sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/appname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507" />
-
-    <Button
-        android:id="@+id/playbutton"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="273dp"
-        android:background="@color/lightblue"
-        android:fontFamily="monospace"
-        android:text="@string/playBut"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/authorButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/authorButton"
-        android:layout_width="223dp"
-        android:layout_height="54dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="100dp"
-        android:layout_marginEnd="410dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/lightblue"
-        android:fontFamily="monospace"
-        android:text="@string/authorBut"
-        android:textColor="@color/white"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/playbutton"
-        app:layout_constraintTop_toBottomOf="@+id/playbutton" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="339dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="930dp"
-        android:contentDescription="@string/redcirc"
-        app:layout_constraintBottom_toTopOf="@+id/appname"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_red" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/greencirc"
+            app:layout_constraintBottom_toTopOf="@+id/appname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_green" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/appname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="monospace"
+                    android:text="@string/app_name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red"
+                    android:textSize="125sp"
+                    android:textStyle="italic"
+                    android:typeface="monospace"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.452"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/exclaim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exclamation"
+                    android:textColor="@color/green"
+                    android:textSize="125sp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toTopOf="@+id/appname"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.507" />
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/playbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@color/lightblue"
+            android:fontFamily="monospace"
+            android:text="@string/playBut"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/authorButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/authorButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightblue"
+            android:fontFamily="monospace"
+            android:text="@string/authorBut"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/playbutton"
+            app:layout_constraintTop_toBottomOf="@+id/playbutton" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-300dp"
+            android:layout_marginTop="100dp"
+            android:contentDescription="@string/redcirc"
+            app:layout_constraintBottom_toTopOf="@+id/appname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_red" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
 
